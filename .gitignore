@@ -13,3 +13,6 @@ pom.xml.asc
 .hg/
 native-image.txt
 .lsp/
+/database.db
+/tt
+/tt.build_artifacts.txt

@@ -1,8 +1,6 @@
 (ns tt.core
-  (:require [java-time :as time]
-            [next.jdbc :as jdbc]
-            [next.jdbc.result-set :as rs]
-            [clojure.string])
+  (:require [next.jdbc :as jdbc]
+            [next.jdbc.result-set :as rs])
   (:gen-class))
 
 (def bg-colors
@@ -36,12 +34,12 @@
 
 (defn stop-running-projects!
   []
-  (execute! ["update tt set end = ? where end is null" (time/sql-timestamp)]))
+  (execute! ["update tt set end = ? where end is null" (java.sql.Timestamp. (System/currentTimeMillis))]))
 
 (defn insert-project!
   [project-name color]
   (stop-running-projects!)
-  (execute! ["insert into tt values (?, ?, ?, ?)" project-name color (time/sql-timestamp) nil]))
+  (execute! ["insert into tt values (?, ?, ?, ?)" project-name color (java.sql.Timestamp. (System/currentTimeMillis))]))
 
 (defn get-color-for-project
   [project-name]
@@ -60,6 +58,6 @@
       (insert-project! project-name color))))
 
 (defn -main
-  [project-name]
+  [& project-name]
   (start-project! project-name)
   (println "Hello!"))

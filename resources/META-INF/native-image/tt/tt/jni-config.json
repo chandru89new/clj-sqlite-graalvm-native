@@ -1,6 +1,6 @@
 [
 {
-  "name":"clojure_lsp.main",
+  "name":"tt.core",
   "methods":[{"name":"main","parameterTypes":["java.lang.String[]"] }]
 },
 {

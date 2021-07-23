@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ -z "$GRAALVM_HOME" ]; then
+    echo "Please set GRAALVM_HOME"
+    exit 1
+fi
+
+lein "do" clean, uberjar
+
+"$GRAALVM_HOME/bin/native-image" \
+    -jar target/uberjar/tt-0.1.0-SNAPSHOT-standalone.jar \
+    --initialize-at-build-time \
+    --report-unsupported-elements-at-runtime \
+    -H:IncludeResources=".*/org/sqlite/.*|org/sqlite/.*|.*.properties" \
+    --no-server \
+    --no-fallback \
+    tt
