@@ -1,0 +1,50 @@
+[
+{
+  "name":"clojure.lang.PersistentArrayMap",
+  "allPublicMethods":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"clojure.lang.PersistentVector",
+  "allDeclaredMethods":true,
+  "allPublicMethods":true
+},
+{
+  "name":"clojure.lang.Symbol",
+  "allPublicMethods":true
+},
+{
+  "name":"clojure.lang.Var",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.Class",
+  "allPublicMethods":true
+},
+{
+  "name":"java.io.File",
+  "allDeclaredFields":true,
+  "allDeclaredConstructors":true,
+  "allPublicMethods":true,
+  "allDeclaredMethods":true
+},
+{
+  "name":"java.lang.Object",
+  "allDeclaredFields":true,
+  "allDeclaredMethods":true,
+  "allPublicMethods":true,
+  "allDeclaredConstructors":true
+},
+{
+  "name":"java.lang.String",
+  "allPublicMethods":true
+},
+{
+  "name":"java.util.ArrayList",
+  "allPublicConstructors":true
+},
+{
+  "name":"java.util.Properties",
+  "allPublicMethods":true
+}
+]
