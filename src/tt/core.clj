@@ -9,14 +9,6 @@
 (def dbspec {:dbtype "sqlite"
              :dbname "database.db"})
 
-(jdbc/execute! dbspec ["
-                        create table if not exists tt (
-                        proj_name varchar(200) not null,
-                        color varchar(200) not null,
-                        start datetime not null,
-                        end datetime
-                        )"])
-
 (defn execute!
   [query]
   (jdbc/execute! dbspec query {:builder-fn rs/as-unqualified-maps}))
@@ -57,7 +49,17 @@
       (println "Already running")
       (insert-project! project-name color))))
 
+(defn init-db []
+  (jdbc/execute! dbspec ["
+                        create table if not exists tt (
+                        proj_name varchar(200) not null,
+                        color varchar(200) not null,
+                        start datetime not null,
+                        end datetime
+                        )"]))
+
 (defn -main
   [& project-name]
+  (init-db)
   (start-project! project-name)
   (println "Hello!"))
